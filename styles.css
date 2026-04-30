@@ -1,0 +1,96 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #d5c6b8;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    max-width: 1200px; /* Prevents stretching too far on large screens */
+    margin: 0 auto; /* Centers the container */
+    padding: 0 20px; /* Adds space on the left and right for large screens */
+}
+
+.responsive-image {
+    width: 100vw; /* Makes the image take up the full viewport width */
+    height: 100vh; /* Makes it take up the full viewport height */
+    object-fit: cover; /* Ensures the image covers the screen without distortion */
+    max-width: 1500px; /* Prevents the image from becoming too stretched on very large screens */
+}
+
+#status-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+/* Media Query for smaller screens (tablets, phones) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks the content vertically on smaller screens */
+        height: auto; /* Let the height adjust based on content */
+        width: 100%; /* Full width of the screen */
+        padding: 10px; /* Add padding for better spacing */
+    }
+
+    .responsive-image {
+        width: 100%; /* Adjust image width for smaller screens */
+        height: auto; /* Let the image's height adjust automatically to maintain aspect ratio */
+    }
+
+    #status-bar {
+        padding: 8px 0; /* Increase padding for better readability on smaller screens */
+    }
+}
+
+/* Media Query for very small screens (phones in portrait mode) */
+@media (max-width: 480px) {
+    body, html {
+        background-color: #d0b7a0; /* Change background color for better visibility on small screens */
+    }
+
+    .container {
+        padding: 5px; /* Reduced padding to accommodate smaller screen */
+    }
+
+    .responsive-image {
+        width: 100%; /* Ensure image is responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #status-bar {
+        padding: 10px 0; /* More padding for easier reading */
+    }
+}
+
+/* Media Query for larger screens (1200px and above) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px; /* Prevent stretching too far on large screens */
+        padding: 0 40px; /* Add more padding for extra space */
+    }
+
+    .responsive-image {
+        max-width: 1500px; /* Keep the image within a reasonable size */
+        width: auto; /* Allow the width to adjust automatically */
+        height: auto; /* Let the height adjust automatically */
+    }
+
+    #status-bar {
+        padding: 10px 0; /* Add more padding to keep the status bar readable */
+    }
+}
